@@ -22,7 +22,7 @@ npm install
 Crie um arquivo `.env` na raiz:
 ```
 PORT=3000
-MONGODB_URI=mongodb://localhost:27017/cidadealerta
+MONGODB_URI=mongodb_uri
 JWT_SECRET=coloque_sua_chave_secreta_aqui
 ```
 
@@ -38,7 +38,6 @@ npm start
 O servidor estará disponível em:
 - API REST: http://localhost:3000/api
 - GraphQL: http://localhost:3000/graphql
-- Health Check: http://localhost:3000/api/health
 
 ## Endpoints da API REST
 
@@ -88,7 +87,7 @@ GET `/api/dashboard/por-periodo?dias=30` - admin/moderador - Reportes por dia
 Acesse o Apollo Sandbox em http://localhost:3000/graphql para testar.
 
 ### Queries
-```graphql
+
 # Listar reportes com filtros e paginação
 query {
   reportes(status: "aberto", pagina: 1, limite: 5) {
@@ -122,10 +121,10 @@ query {
     icone
   }
 }
-```
+
 
 ### Mutations
-```graphql
+
 # Registrar
 mutation {
   registro(input: { nome: "Novo User", email: "novo@email.com", senha: "123456" }) {
@@ -164,9 +163,8 @@ mutation {
     autor { nome }
   }
 }
-```
 
-Nota: Para mutations que requerem autenticação, envie o token JWT no header:
+Para mutations que requerem autenticação, envie o token JWT no header do postman:
 ```
 Authorization: Bearer seu_token_aqui
 ```
