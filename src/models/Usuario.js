@@ -28,7 +28,7 @@ const usuario = new mongoose.Schema({
     perfil: {
       type: String,
       enum: ['cidadao', 'moderador', 'admin'], 
-      default: 'cidadao', 
+      default: 'admin', 
     },
 
     ativo: {
