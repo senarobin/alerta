@@ -23,17 +23,13 @@ Crie um arquivo `.env` na raiz:
 ```
 PORT=3000
 MONGODB_URI=mongodb_uri
-JWT_SECRET=coloque_sua_chave_secreta_aqui
+JWT_SECRET=chave_secreta
 ```
 
 ### 3. Iniciar o servidor
 ```bash
-# Desenvolvimento (com hot reload)
+# Desenvolvimento
 npm run dev
-
-# Produção
-npm start
-```
 
 O servidor estará disponível em:
 - API REST: http://localhost:3000/api
@@ -146,7 +142,7 @@ mutation {
   criarReporte(input: {
     titulo: "Problema teste"
     descricao: "Descrição do problema encontrado"
-    categoria: "ID_DA_CATEGORIA"
+    categoria: "id_da_categoria"
     localizacao: { coordenadas: [-43.17, -22.90] }
   }) {
     id
@@ -157,7 +153,7 @@ mutation {
 
 # Adicionar comentário (requer token)
 mutation {
-  adicionarComentario(reporteId: "ID_DO_REPORTE", conteudo: "Meu comentário") {
+  adicionarComentario(reporteId: "id_do_reporte", conteudo: "Meu comentário") {
     id
     conteudo
     autor { nome }
